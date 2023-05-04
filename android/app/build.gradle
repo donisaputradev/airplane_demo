@@ -63,7 +63,7 @@ android {
         staging {
             dimension "default"
             applicationIdSuffix ".stg"
-            manifestPlaceholders = [appName: "Airplane Stag"]
+            manifestPlaceholders = [appName: "Airplane Stg"]
         }
         development {
             dimension "default"
