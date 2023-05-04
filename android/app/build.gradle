@@ -53,6 +53,25 @@ android {
         versionName flutterVersionName
     }
 
+    flavorDimensions "default"
+    productFlavors { 
+        production {
+            dimension "default"
+            applicationIdSuffix ""
+            manifestPlaceholders = [appName: "Airplane"]
+        }
+        staging {
+            dimension "default"
+            applicationIdSuffix ".stg"
+            manifestPlaceholders = [appName: "Airplane Stag"]
+        }
+        development {
+            dimension "default"
+            applicationIdSuffix ".dev"
+            manifestPlaceholders = [appName: "Airplane Dev"]
+        }
+    }
+
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.

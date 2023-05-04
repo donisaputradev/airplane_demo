@@ -6,6 +6,7 @@ import 'package:airplane_demo/l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
@@ -24,7 +25,19 @@ class App extends StatelessWidget {
     );
 
     return MultiBlocProvider(
-      providers: const [],
+      providers: [
+        BlocProvider(
+          create: (context) => GetIt.I<ThemeBloc>()..add(const ThemeStarted()),
+        ),
+        BlocProvider(
+          create: (context) =>
+              GetIt.I<LanguageBloc>()..add(const LanguageStarted()),
+        ),
+        BlocProvider(
+          create: (context) =>
+              GetIt.I<SplashBloc>()..add(const NavigateSplashEvent()),
+        ),
+      ],
       child: const _AppWidget(),
     );
   }
@@ -49,7 +62,7 @@ class _AppWidget extends StatelessWidget {
       supportedLocales: AppLocalizations.supportedLocales,
       navigatorObservers: [routeObserver],
       onGenerateRoute: onGenerateRoute,
-      home: const Scaffold(),
+      home: const SplashPage(),
     );
   }
 }

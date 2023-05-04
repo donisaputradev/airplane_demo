@@ -1,1 +1,1 @@
-
+export 'main/page.dart';
