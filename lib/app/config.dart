@@ -11,7 +11,7 @@ class AppConfig {
   ///
   /// This config set `title` in `MaterialApp`
   /// And by default title in `MaterialApp` change
-  static const String appName = 'Showan Coffee';
+  static const String appName = 'Airplane';
 
   /// Base URL APIs App
   static const FlavorConfig<String> baseUrl = FlavorConfig<String>(
