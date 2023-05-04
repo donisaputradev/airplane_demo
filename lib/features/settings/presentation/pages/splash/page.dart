@@ -1,8 +1,7 @@
+import 'package:airplane_demo/core/core.dart';
+import 'package:airplane_demo/features/settings/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:showan_coffee/app/routes.dart';
-import 'package:showan_coffee/core/core.dart';
-import 'package:showan_coffee/features/settings/settings.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({super.key});
@@ -12,8 +11,8 @@ class SplashPage extends StatelessWidget {
     return BlocListener<SplashBloc, SplashState>(
       listener: (context, state) {
         if (state is SplashSuccess) {
-          Navigator.pushNamedAndRemoveUntil(
-              context, AppRoutes.auth, (route) => false);
+          // Navigator.pushNamedAndRemoveUntil(
+          //     context, AppRoutes.auth, (route) => false);
         }
       },
       child: Scaffold(

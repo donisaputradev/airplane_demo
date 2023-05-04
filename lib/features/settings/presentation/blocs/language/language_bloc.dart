@@ -1,10 +1,10 @@
 import 'dart:async';
 
+import 'package:airplane_demo/core/core.dart';
+import 'package:airplane_demo/features/settings/settings.dart';
+import 'package:airplane_demo/l10n/l10n.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:showan_coffee/core/core.dart';
-import 'package:showan_coffee/features/settings/settings.dart';
-import 'package:showan_coffee/l10n/l10n.dart';
 
 part 'language_event.dart';
 part 'language_state.dart';

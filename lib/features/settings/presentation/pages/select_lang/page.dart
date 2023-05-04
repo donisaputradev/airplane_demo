@@ -1,7 +1,7 @@
+import 'package:airplane_demo/core/core.dart';
+import 'package:airplane_demo/features/settings/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:showan_coffee/core/core.dart';
-import 'package:showan_coffee/features/settings/settings.dart';
 
 part 'sections/action_section.dart';
 

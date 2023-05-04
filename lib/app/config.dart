@@ -1,4 +1,5 @@
 import 'package:airplane_demo/app/flavor.dart';
+import 'package:airplane_demo/core/core.dart';
 
 /// Base Config in App
 class AppConfig {

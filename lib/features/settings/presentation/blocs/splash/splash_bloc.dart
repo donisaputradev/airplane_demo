@@ -1,4 +1,4 @@
-import 'package:showan_coffee/features/settings/settings.dart';
+import 'package:airplane_demo/features/settings/settings.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

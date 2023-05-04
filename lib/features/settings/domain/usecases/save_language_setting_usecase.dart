@@ -1,8 +1,8 @@
 import 'dart:async';
 
+import 'package:airplane_demo/core/core.dart';
+import 'package:airplane_demo/features/settings/settings.dart';
 import 'package:dartz/dartz.dart';
-import 'package:showan_coffee/core/core.dart';
-import 'package:showan_coffee/features/settings/domain/domain.dart';
 
 class SaveLanguageSettingUseCase
     implements UseCaseFuture<Failure, bool, Language> {

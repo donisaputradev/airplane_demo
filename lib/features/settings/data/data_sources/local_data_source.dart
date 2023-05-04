@@ -1,5 +1,8 @@
 import 'dart:convert';
 
+import 'package:airplane_demo/app/config.dart';
+import 'package:airplane_demo/core/core.dart';
+import 'package:airplane_demo/features/settings/settings.dart';
 import 'package:hive/hive.dart';
 
 abstract class SettingsLocalDataSource implements CacheDataSource<Settings> {

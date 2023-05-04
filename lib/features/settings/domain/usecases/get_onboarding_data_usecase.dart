@@ -1,4 +1,4 @@
-import 'package:showan_coffee/features/settings/settings.dart';
+import 'package:airplane_demo/features/settings/settings.dart';
 
 class GetOnboardingDataUseCase {
   List<IntroBoard> call() {

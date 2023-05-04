@@ -1,7 +1,7 @@
+import 'package:airplane_demo/app/config.dart';
+import 'package:airplane_demo/core/core.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:showan_coffee/app/config.dart';
-import 'package:showan_coffee/core/core.dart';
 
 part 'settings.g.dart';
 

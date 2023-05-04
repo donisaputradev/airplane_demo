@@ -1,5 +1,5 @@
+import 'package:airplane_demo/core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:showan_coffee/core/core.dart';
 
 class LanguageCard extends StatelessWidget {
   const LanguageCard({

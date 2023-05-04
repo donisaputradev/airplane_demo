@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'dart:developer';
 
+import 'package:airplane_demo/core/core.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:get_it/get_it.dart';
-import 'package:showan_coffee/core/core.dart';
 
 class RecordErrorUseCase
     implements UseCaseFuture<Failure, bool, RecordErrorParams> {

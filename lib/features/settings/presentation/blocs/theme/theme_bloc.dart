@@ -1,10 +1,10 @@
 import 'dart:async';
 
+import 'package:airplane_demo/app/config.dart';
+import 'package:airplane_demo/core/core.dart';
+import 'package:airplane_demo/features/settings/settings.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:showan_coffee/app/config.dart';
-import 'package:showan_coffee/core/core.dart';
-import 'package:showan_coffee/features/settings/settings.dart';
 
 part 'theme_event.dart';
 part 'theme_state.dart';

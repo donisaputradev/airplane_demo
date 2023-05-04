@@ -1,8 +1,8 @@
 import 'dart:async';
 
+import 'package:airplane_demo/core/core.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/widgets.dart';
-import 'package:showan_coffee/core/core.dart';
 
 class GetSupportedLanguageUseCase
     implements UseCaseFuture<Failure, List<Language>, SupportedLanguageParams> {
