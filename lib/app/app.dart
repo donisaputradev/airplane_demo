@@ -1,5 +1,7 @@
 import 'package:airplane_demo/app/config.dart';
 import 'package:airplane_demo/app/generate.dart';
+import 'package:airplane_demo/core/core.dart';
+import 'package:airplane_demo/features/settings/settings.dart';
 import 'package:airplane_demo/l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
