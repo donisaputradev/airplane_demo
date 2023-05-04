@@ -1,4 +1,6 @@
 import 'package:airplane_demo/app/config.dart';
+import 'package:airplane_demo/app/generate.dart';
+import 'package:airplane_demo/l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -45,8 +47,7 @@ class _AppWidget extends StatelessWidget {
       supportedLocales: AppLocalizations.supportedLocales,
       navigatorObservers: [routeObserver],
       onGenerateRoute: onGenerateRoute,
-      builder: EasyLoading.init(),
-      home: const SplashPage(),
+      home: const Scaffold(),
     );
   }
 }
