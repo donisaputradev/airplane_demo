@@ -6,20 +6,20 @@ class AppColors {
   // Color's pallete from https://materialui.co/colors/
   // ------------------------------------------------- //
 
-  static const primary = MaterialColor(0xFF9E9E9E, {
+  static const gray = MaterialColor(0xFF9E9E9E, {
     100: Color(0xFFF5F5F5),
     300: Color(0xFFE0E0E0),
     500: Color(0xFF9E9E9E),
     700: Color(0xFF616161),
-    900: Color(0xFF0C0F14),
+    900: Color(0xFF212121),
   });
 
-  static const secondary = MaterialColor(0xFF795548, {
-    100: Color(0xFFD7CCC8),
-    300: Color(0xFFA1887F),
-    500: Color(0xFF795548),
-    700: Color(0xFF5D4037),
-    900: Color(0xFF3E2723),
+  static const teal = MaterialColor(0xFF009688, {
+    100: Color(0xFFB2DFDB),
+    300: Color(0xFF4DB6AC),
+    500: Color(0xFF009688),
+    700: Color(0xFF00796B),
+    900: Color(0xFF004D40),
   });
 
   static const amber = MaterialColor(0xFFFFC107, {
@@ -38,10 +38,10 @@ class AppColors {
     900: Color(0xFFB71C1C),
   });
 
-  static const indigo = MaterialColor(0xFF3F51B5, {
-    100: Color(0xFFC5CAE9),
+  static const indigo = MaterialColor(0xFF5C40CC, {
+    100: Color(0xFFE0D9FF),
     300: Color(0xFF7986CB),
-    500: Color(0xFF3F51B5),
+    500: Color(0xFF5C40CC),
     700: Color(0xFF303F9F),
     900: Color(0xFF1A237E),
   });

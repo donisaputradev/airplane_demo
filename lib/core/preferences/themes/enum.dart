@@ -19,9 +19,9 @@ extension AppThemeX on AppTheme {
   ThemeData toThemeData() {
     switch (this) {
       case AppTheme.dark:
-        return DarkTheme(AppColors.primary[100]!).toTheme;
+        return DarkTheme(AppColors.gray[100]!).toTheme;
       case AppTheme.light:
-        return LightTheme(AppColors.primary[100]!).toTheme;
+        return LightTheme(AppColors.gray[100]!).toTheme;
     }
   }
 }

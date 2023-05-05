@@ -1,3 +1,4 @@
+import 'package:airplane_demo/app/config.dart';
 import 'package:airplane_demo/core/core.dart';
 import 'package:flutter/material.dart';
 
@@ -5,16 +6,16 @@ class LightTheme {
   LightTheme(this.primaryColor);
 
   final Color primaryColor;
-  static Color disabledTextColor = AppColors.primary[700]!;
-  static Color secondaryColor = AppColors.secondary[700]!;
-  static Color disabledColor = AppColors.primary[700]!;
-  static Color textSolidColor = AppColors.primary[100]!;
+  static Color disabledTextColor = AppColors.gray[700]!;
+  static Color secondaryColor = AppColors.gray[700]!;
+  static Color disabledColor = AppColors.gray[700]!;
+  static Color textSolidColor = AppColors.gray[100]!;
   static Color errorColor = AppColors.red;
-  static Color dividerColor = AppColors.primary[300]!;
-  static Color inputBackgroundColor = AppColors.primary[100]!;
-  static Color scaffoldColor = AppColors.primary[900]!;
-  static Color cardColor = AppColors.primary;
-  static Color appBarColor = AppColors.primary[900]!;
+  static Color dividerColor = AppColors.gray[300]!;
+  static Color inputBackgroundColor = AppColors.gray[100]!;
+  static Color scaffoldColor = AppColors.gray[100]!;
+  static Color cardColor = AppColors.gray[100]!;
+  static Color appBarColor = AppColors.gray[100]!;
 
   ColorScheme get scheme => ColorScheme.light(
         primary: primaryColor,
@@ -49,7 +50,7 @@ class LightTheme {
           ),
           textStyle: text.labelLarge?.copyWith(
             color: primaryColor,
-            fontFamily: 'Poppins',
+            fontFamily: AppConfig.fontFamily,
           ),
         ),
       );
@@ -69,7 +70,7 @@ class LightTheme {
           ),
           textStyle: text.labelLarge?.copyWith(
             color: scheme.onPrimary,
-            fontFamily: 'Poppins',
+            fontFamily: AppConfig.fontFamily,
           ),
         ),
       );
@@ -89,14 +90,14 @@ class LightTheme {
   AppBarTheme get appBar => AppBarTheme(
         color: appBarColor,
         titleTextStyle: text.titleLarge?.copyWith(
-          fontFamily: 'Poppins',
+          fontFamily: AppConfig.fontFamily,
           color: textSolidColor,
           fontWeight: FontWeight.w600,
           fontSize: 16,
         ),
         toolbarTextStyle: text.titleLarge?.copyWith(
           color: textSolidColor,
-          fontFamily: 'Poppins',
+          fontFamily: AppConfig.fontFamily,
           fontWeight: FontWeight.w600,
           fontSize: 16,
         ),
@@ -154,14 +155,14 @@ class LightTheme {
   BottomNavigationBarThemeData get bottomNav => BottomNavigationBarThemeData(
         backgroundColor: cardColor,
         elevation: 8,
-        unselectedItemColor: AppColors.secondary,
+        unselectedItemColor: secondaryColor,
         selectedLabelStyle: const TextStyle(
           fontSize: Dimens.dp12,
-          fontFamily: 'Poppins',
+          fontFamily: AppConfig.fontFamily,
         ),
         unselectedLabelStyle: const TextStyle(
           fontSize: Dimens.dp12,
-          fontFamily: 'Poppins',
+          fontFamily: AppConfig.fontFamily,
         ),
       );
 
@@ -177,11 +178,11 @@ class LightTheme {
         unselectedLabelColor: disabledTextColor,
         labelStyle: const TextStyle(
           fontWeight: FontWeight.w600,
-          fontFamily: 'Poppins',
+          fontFamily: AppConfig.fontFamily,
         ),
         unselectedLabelStyle: const TextStyle(
           fontWeight: FontWeight.w600,
-          fontFamily: 'Poppins',
+          fontFamily: AppConfig.fontFamily,
         ),
       );
 
@@ -190,46 +191,46 @@ class LightTheme {
           color: textSolidColor,
           fontSize: Dimens.dp14,
           fontWeight: FontWeight.normal,
-          fontFamily: 'Poppins',
+          fontFamily: AppConfig.fontFamily,
         ),
         // Use for regular text
         bodyMedium: TextStyle(
           color: disabledTextColor,
           fontSize: Dimens.dp12,
           fontWeight: FontWeight.normal,
-          fontFamily: 'Poppins',
+          fontFamily: AppConfig.fontFamily,
         ),
         // Use for heading text
         headlineSmall: TextStyle(
           color: textSolidColor,
           fontWeight: FontWeight.w600,
           fontSize: Dimens.dp24,
-          fontFamily: 'Poppins',
+          fontFamily: AppConfig.fontFamily,
         ),
         // Use for title text, AppBar
         titleLarge: TextStyle(
           color: textSolidColor,
           fontWeight: FontWeight.w700,
           fontSize: Dimens.dp16,
-          fontFamily: 'Poppins',
+          fontFamily: AppConfig.fontFamily,
         ),
         // Use for sub title text
         titleMedium: TextStyle(
           color: textSolidColor,
           fontWeight: FontWeight.w600,
           fontSize: Dimens.dp14,
-          fontFamily: 'Poppins',
+          fontFamily: AppConfig.fontFamily,
         ),
 
         labelLarge: const TextStyle(
           fontSize: Dimens.dp14,
           fontWeight: FontWeight.w600,
-          fontFamily: 'Poppins',
+          fontFamily: AppConfig.fontFamily,
         ),
         // Use for caption
         bodySmall: TextStyle(
           fontSize: Dimens.dp10,
-          fontFamily: 'Poppins',
+          fontFamily: AppConfig.fontFamily,
           color: disabledTextColor,
         ),
       );
@@ -257,7 +258,7 @@ class LightTheme {
   ThemeData get toTheme {
     return ThemeData(
       useMaterial3: true,
-      fontFamily: 'Poppins',
+      fontFamily: AppConfig.fontFamily,
       primaryColor: primaryColor,
       scaffoldBackgroundColor: scaffoldColor,
       canvasColor: scaffoldColor,

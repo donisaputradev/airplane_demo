@@ -13,6 +13,7 @@ class AppConfig {
   /// This config set `title` in `MaterialApp`
   /// And by default title in `MaterialApp` change
   static const String appName = 'Airplane';
+  static const String fontFamily = 'Poppins';
 
   /// Base URL APIs App
   static const FlavorConfig<String> baseUrl = FlavorConfig<String>(

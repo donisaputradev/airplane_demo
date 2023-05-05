@@ -1,7 +1,9 @@
+import 'package:airplane_demo/app/config.dart';
 import 'package:airplane_demo/core/core.dart';
 import 'package:airplane_demo/features/settings/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({super.key});
@@ -16,34 +18,16 @@ class SplashPage extends StatelessWidget {
         }
       },
       child: Scaffold(
-        body: Container(
-          width: Dimens.width(context),
-          height: Dimens.height(context),
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage(MainAssets.bgCoffeeImg),
-              fit: BoxFit.cover,
-            ),
-          ),
-          child: Stack(
+        backgroundColor: AppColors.indigo,
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Center(
-                child: Hero(
-                  tag: MainAssets.splashLogoImg,
-                  child: Image.asset(
-                    MainAssets.splashLogoImg,
-                    width: Dimens.width(context) / 2,
-                  ),
-                ),
-              ),
-              Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: const [
-                    CircularProgressIndicator(),
-                    SizedBox(height: Dimens.dp32),
-                  ],
-                ),
+              SvgPicture.asset(MainAssets.airplaneSvg),
+              Dimens.dp40.height,
+              HeadingText(
+                AppConfig.appName.toUpperCase(),
+                style: const TextStyle(letterSpacing: Dimens.dp8),
               ),
             ],
           ),

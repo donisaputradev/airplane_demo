@@ -84,11 +84,11 @@ class RegularInput extends StatelessWidget {
                 TextStyle(
                   fontSize: Dimens.dp14,
                   fontWeight: FontWeight.normal,
-                  color: disabledColor ?? textColor ?? AppColors.primary[900],
+                  color: disabledColor ?? textColor ?? AppColors.gray[900],
                 ),
             keyboardType: inputType,
             enabled: enable,
-            cursorColor: AppColors.primary[700],
+            cursorColor: AppColors.gray[700],
             onTap: onTap,
             readOnly: readOnly ?? false,
             inputFormatters: inputFormatters,
