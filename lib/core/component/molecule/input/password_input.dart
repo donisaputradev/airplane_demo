@@ -46,7 +46,6 @@ class _PasswordInputState extends State<PasswordInput> {
       hintText: widget.hintText,
       label: widget.label,
       focusNode: widget.focusNode,
-      prefixIcon: Icons.lock_outline,
       inputAction: widget.inputAction,
       inputFormatters: widget.inputFormatters,
       onChange: widget.onChange,

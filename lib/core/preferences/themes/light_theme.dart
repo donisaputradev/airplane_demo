@@ -6,10 +6,10 @@ class LightTheme {
   LightTheme(this.primaryColor);
 
   final Color primaryColor;
-  static Color disabledTextColor = AppColors.gray;
+  static Color disabledTextColor = AppColors.gray[700]!;
   static Color secondaryColor = AppColors.gray[700]!;
   static Color disabledColor = AppColors.gray[700]!;
-  static Color textSolidColor = AppColors.gray[100]!;
+  static Color textSolidColor = AppColors.gray[900]!;
   static Color errorColor = AppColors.red;
   static Color dividerColor = AppColors.gray[300]!;
   static Color inputBackgroundColor = AppColors.gray[100]!;
@@ -119,34 +119,40 @@ class LightTheme {
           horizontal: Dimens.dp16,
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide.none,
-          borderRadius: BorderRadius.circular(Dimens.dp14),
+          borderSide: BorderSide(
+            color: primaryColor.withOpacity(.3),
+          ),
+          borderRadius: BorderRadius.circular(Dimens.dp16),
         ),
         disabledBorder: OutlineInputBorder(
-          borderSide: BorderSide.none,
-          borderRadius: BorderRadius.circular(Dimens.dp14),
+          borderSide: BorderSide(
+            color: primaryColor.withOpacity(.3),
+          ),
+          borderRadius: BorderRadius.circular(Dimens.dp16),
         ),
         border: OutlineInputBorder(
-          borderSide: BorderSide.none,
-          borderRadius: BorderRadius.circular(Dimens.dp14),
+          borderSide: BorderSide(
+            color: primaryColor.withOpacity(.3),
+          ),
+          borderRadius: BorderRadius.circular(Dimens.dp16),
         ),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(
             color: primaryColor,
           ),
-          borderRadius: BorderRadius.circular(Dimens.dp14),
+          borderRadius: BorderRadius.circular(Dimens.dp16),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderSide: BorderSide(
             color: errorColor,
           ),
-          borderRadius: BorderRadius.circular(Dimens.dp14),
+          borderRadius: BorderRadius.circular(Dimens.dp16),
         ),
         errorBorder: OutlineInputBorder(
           borderSide: BorderSide(
             color: errorColor,
           ),
-          borderRadius: BorderRadius.circular(Dimens.dp14),
+          borderRadius: BorderRadius.circular(Dimens.dp16),
         ),
       );
 

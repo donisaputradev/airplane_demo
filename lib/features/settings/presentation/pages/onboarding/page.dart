@@ -24,7 +24,11 @@ class OnboardingPage extends StatelessWidget {
         child: Column(
           children: [
             (Dimens.height(context) / 1.8).height,
-            const HeadingText('Fly Like a Bird', align: TextAlign.center),
+            HeadingText(
+              'Fly Like a Bird',
+              align: TextAlign.center,
+              style: TextStyle(color: AppColors.gray[100]),
+            ),
             Dimens.dp10.height,
             const RegularText(
               'Explore new world with us and let\nyourself get an amazing experiences',

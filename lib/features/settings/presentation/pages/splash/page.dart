@@ -30,7 +30,10 @@ class SplashPage extends StatelessWidget {
               Dimens.dp40.height,
               HeadingText(
                 AppConfig.appName.toUpperCase(),
-                style: const TextStyle(letterSpacing: Dimens.dp8),
+                style: TextStyle(
+                  letterSpacing: Dimens.dp8,
+                  color: AppColors.gray[100],
+                ),
               ),
             ],
           ),
