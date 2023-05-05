@@ -1,76 +1,49 @@
 import 'package:airplane_demo/core/core.dart';
-import 'package:airplane_demo/features/settings/settings.dart';
+import 'package:airplane_demo/features/auth/auth.dart';
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
 
-part 'sections/controller_section.dart';
-part 'sections/board_card_section.dart';
-part 'sections/slider_board_section.dart';
+class OnboardingPage extends StatelessWidget {
+  const OnboardingPage({super.key});
 
-class OnboardingPage extends StatefulWidget {
-  const OnboardingPage({Key? key}) : super(key: key);
-
-  @override
-  State<OnboardingPage> createState() => _OnboardingPageState();
-}
-
-class _OnboardingPageState extends State<OnboardingPage> {
-  final _controller = PageController();
-  final _onboardingData = GetIt.I<GetOnboardingDataUseCase>().call();
-
-  @override
-  void initState() {
-    _addControllerListener();
-    super.initState();
-  }
-
-  void _addControllerListener() {
-    _controller.addListener(() {
-      if (mounted) setState(() {});
-    });
-  }
-
-  @override
-  void setState(VoidCallback fn) {
-    if (mounted) super.setState(fn);
-  }
+  static const String routeName = '/onboarding';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Expanded(
-            child: _SliderBoardSection(
-              controller: _controller,
-              data: _onboardingData,
+      body: Container(
+        width: Dimens.width(context),
+        height: Dimens.height(context),
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(
+              MainAssets.backgroundImg,
             ),
+            fit: BoxFit.cover,
           ),
-          _ControllerSection(
-            length: _onboardingData.length,
-            currentIndex:
-                _controller.hasClients ? _controller.page?.round() ?? 0 : 0,
-            onNext: () {
-              if ((_controller.page ?? 0) < _onboardingData.length - 1) {
-                _controller.nextPage(
-                  duration: const Duration(milliseconds: 500),
-                  curve: Curves.easeIn,
+        ),
+        child: Column(
+          children: [
+            (Dimens.height(context) / 1.8).height,
+            const HeadingText('Fly Like a Bird', align: TextAlign.center),
+            Dimens.dp10.height,
+            const RegularText(
+              'Explore new world with us and let\nyourself get an amazing experiences',
+              align: TextAlign.center,
+            ),
+            Dimens.dp50.height,
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamedAndRemoveUntil(
+                  context,
+                  RegisterPage.routeName,
+                  (route) => false,
                 );
-              } else {
-                // GoRouter.of(context).go('/auth');
-              }
-            },
-          ),
-        ],
+              },
+              child: const Text('Get Started'),
+            ),
+          ],
+        ),
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    _controller
-      ..removeListener(() {})
-      ..dispose();
-    super.dispose();
   }
 }

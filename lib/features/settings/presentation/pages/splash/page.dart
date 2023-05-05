@@ -13,8 +13,11 @@ class SplashPage extends StatelessWidget {
     return BlocListener<SplashBloc, SplashState>(
       listener: (context, state) {
         if (state is SplashSuccess) {
-          // Navigator.pushNamedAndRemoveUntil(
-          //     context, AppRoutes.auth, (route) => false);
+          Navigator.pushNamedAndRemoveUntil(
+            context,
+            OnboardingPage.routeName,
+            (route) => false,
+          );
         }
       },
       child: Scaffold(

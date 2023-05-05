@@ -6,7 +6,7 @@ class LightTheme {
   LightTheme(this.primaryColor);
 
   final Color primaryColor;
-  static Color disabledTextColor = AppColors.gray[700]!;
+  static Color disabledTextColor = AppColors.gray;
   static Color secondaryColor = AppColors.gray[700]!;
   static Color disabledColor = AppColors.gray[700]!;
   static Color textSolidColor = AppColors.gray[100]!;
@@ -38,14 +38,12 @@ class LightTheme {
   OutlinedButtonThemeData get outlineButton => OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
           foregroundColor: primaryColor,
-          side: BorderSide(
-            color: primaryColor,
-          ),
+          side: BorderSide(color: primaryColor),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(Dimens.dp14),
+            borderRadius: BorderRadius.circular(Dimens.dp16),
           ),
           padding: const EdgeInsets.symmetric(
-            vertical: Dimens.dp12,
+            vertical: Dimens.dp14,
             horizontal: Dimens.dp24,
           ),
           textStyle: text.labelLarge?.copyWith(
@@ -58,14 +56,14 @@ class LightTheme {
   ElevatedButtonThemeData get elevatedButton => ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           foregroundColor: scheme.onPrimary,
-          backgroundColor: secondaryColor,
+          backgroundColor: primaryColor,
           disabledBackgroundColor: secondaryColor.withOpacity(.7),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(Dimens.dp14),
+            borderRadius: BorderRadius.circular(Dimens.dp16),
           ),
           shadowColor: Colors.transparent,
           padding: const EdgeInsets.symmetric(
-            vertical: Dimens.dp12,
+            vertical: Dimens.dp14,
             horizontal: Dimens.dp24,
           ),
           textStyle: text.labelLarge?.copyWith(
@@ -189,14 +187,14 @@ class LightTheme {
   TextTheme get text => TextTheme(
         bodyLarge: TextStyle(
           color: textSolidColor,
-          fontSize: Dimens.dp14,
+          fontSize: Dimens.dp16,
           fontWeight: FontWeight.normal,
           fontFamily: AppConfig.fontFamily,
         ),
         // Use for regular text
         bodyMedium: TextStyle(
           color: disabledTextColor,
-          fontSize: Dimens.dp12,
+          fontSize: Dimens.dp14,
           fontWeight: FontWeight.normal,
           fontFamily: AppConfig.fontFamily,
         ),

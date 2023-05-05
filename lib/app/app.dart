@@ -17,6 +17,7 @@ class App extends StatelessWidget {
       const SystemUiOverlayStyle(
         statusBarColor:
             AppConfig.transparentStatusBar ? Colors.transparent : null,
+        statusBarIconBrightness: Brightness.dark,
       ),
     );
 

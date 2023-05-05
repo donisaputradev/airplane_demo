@@ -189,14 +189,14 @@ class DarkTheme {
   TextTheme get text => TextTheme(
         bodyLarge: TextStyle(
           color: textSolidColor,
-          fontSize: Dimens.dp14,
+          fontSize: Dimens.dp16,
           fontWeight: FontWeight.normal,
           fontFamily: AppConfig.fontFamily,
         ),
         // Use for regular text
         bodyMedium: TextStyle(
           color: disabledTextColor,
-          fontSize: Dimens.dp12,
+          fontSize: Dimens.dp14,
           fontWeight: FontWeight.normal,
           fontFamily: AppConfig.fontFamily,
         ),
