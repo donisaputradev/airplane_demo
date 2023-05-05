@@ -26,7 +26,13 @@ class _FormSection extends StatelessWidget {
           ),
           Dimens.dp32.height,
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamedAndRemoveUntil(
+                context,
+                WalletPage.routeName,
+                (route) => false,
+              );
+            },
             child: const Text('Get Started'),
           ),
         ],

@@ -64,7 +64,7 @@ class LightTheme {
           shadowColor: Colors.transparent,
           padding: const EdgeInsets.symmetric(
             vertical: Dimens.dp14,
-            horizontal: Dimens.dp24,
+            horizontal: Dimens.dp32,
           ),
           textStyle: text.labelLarge?.copyWith(
             color: scheme.onPrimary,

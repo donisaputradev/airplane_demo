@@ -1,4 +1,5 @@
 import 'package:airplane_demo/core/core.dart';
+import 'package:airplane_demo/features/wallet/wallet.dart';
 import 'package:flutter/material.dart';
 
 part 'sections/forms_section.dart';

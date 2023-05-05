@@ -1,6 +1,7 @@
 import 'package:airplane_demo/features/auth/auth.dart';
 import 'package:airplane_demo/features/home/home.dart';
 import 'package:airplane_demo/features/settings/settings.dart';
+import 'package:airplane_demo/features/wallet/wallet.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -16,6 +17,11 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case RegisterPage.routeName:
       return CupertinoPageRoute(
         builder: (_) => const RegisterPage(),
+        settings: settings,
+      );
+    case WalletPage.routeName:
+      return CupertinoPageRoute(
+        builder: (_) => const WalletPage(),
         settings: settings,
       );
     case MainPage.routeName:

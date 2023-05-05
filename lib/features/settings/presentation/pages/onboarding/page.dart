@@ -27,7 +27,9 @@ class OnboardingPage extends StatelessWidget {
             HeadingText(
               'Fly Like a Bird',
               align: TextAlign.center,
-              style: TextStyle(color: AppColors.gray[100]),
+              style: TextStyle(
+                color: context.adaptiveTheme.backgroundColor,
+              ),
             ),
             Dimens.dp10.height,
             const RegularText(

@@ -32,7 +32,7 @@ class SplashPage extends StatelessWidget {
                 AppConfig.appName.toUpperCase(),
                 style: TextStyle(
                   letterSpacing: Dimens.dp8,
-                  color: AppColors.gray[100],
+                  color: context.adaptiveTheme.backgroundColor,
                 ),
               ),
             ],
