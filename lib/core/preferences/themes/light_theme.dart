@@ -12,10 +12,10 @@ class LightTheme {
   static Color textSolidColor = AppColors.gray[900]!;
   static Color errorColor = AppColors.red;
   static Color dividerColor = AppColors.gray[300]!;
-  static Color inputBackgroundColor = AppColors.gray[100]!;
-  static Color scaffoldColor = AppColors.gray[100]!;
-  static Color cardColor = AppColors.gray[100]!;
-  static Color appBarColor = AppColors.gray[100]!;
+  static Color inputBackgroundColor = Colors.white;
+  static Color scaffoldColor = Colors.white;
+  static Color cardColor = Colors.white;
+  static Color appBarColor = Colors.white;
 
   ColorScheme get scheme => ColorScheme.light(
         primary: primaryColor,
@@ -91,7 +91,7 @@ class LightTheme {
           fontFamily: AppConfig.fontFamily,
           color: textSolidColor,
           fontWeight: FontWeight.w600,
-          fontSize: 16,
+          fontSize: Dimens.dp24,
         ),
         toolbarTextStyle: text.titleLarge?.copyWith(
           color: textSolidColor,
@@ -99,7 +99,9 @@ class LightTheme {
           fontWeight: FontWeight.w600,
           fontSize: 16,
         ),
+        surfaceTintColor: appBarColor,
         elevation: .15,
+        scrolledUnderElevation: .15,
         shadowColor: dividerColor.withOpacity(0.5),
         iconTheme: IconThemeData(
           color: primaryColor,
@@ -159,6 +161,7 @@ class LightTheme {
   BottomNavigationBarThemeData get bottomNav => BottomNavigationBarThemeData(
         backgroundColor: cardColor,
         elevation: 8,
+        type: BottomNavigationBarType.fixed,
         unselectedItemColor: secondaryColor,
         selectedLabelStyle: const TextStyle(
           fontSize: Dimens.dp12,
@@ -222,13 +225,13 @@ class LightTheme {
         titleMedium: TextStyle(
           color: textSolidColor,
           fontWeight: FontWeight.w600,
-          fontSize: Dimens.dp14,
+          fontSize: Dimens.dp16,
           fontFamily: AppConfig.fontFamily,
         ),
 
         labelLarge: const TextStyle(
-          fontSize: Dimens.dp14,
-          fontWeight: FontWeight.w600,
+          fontSize: Dimens.dp18,
+          fontWeight: FontWeight.w500,
           fontFamily: AppConfig.fontFamily,
         ),
         // Use for caption

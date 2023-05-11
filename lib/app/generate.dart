@@ -1,6 +1,9 @@
 import 'package:airplane_demo/features/auth/auth.dart';
 import 'package:airplane_demo/features/home/home.dart';
+import 'package:airplane_demo/features/place/detail/detail.dart';
 import 'package:airplane_demo/features/settings/settings.dart';
+import 'package:airplane_demo/features/transaction/checkout/checkout.dart';
+import 'package:airplane_demo/features/transaction/seat/seat.dart';
 import 'package:airplane_demo/features/wallet/wallet.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -27,6 +30,26 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case MainPage.routeName:
       return MaterialPageRoute(
         builder: (_) => const MainPage(),
+        settings: settings,
+      );
+    case DetailPlacePage.routeName:
+      return CupertinoPageRoute(
+        builder: (_) => const DetailPlacePage(),
+        settings: settings,
+      );
+    case ChooseSeatPage.routeName:
+      return CupertinoPageRoute(
+        builder: (_) => const ChooseSeatPage(),
+        settings: settings,
+      );
+    case CheckoutPage.routeName:
+      return CupertinoPageRoute(
+        builder: (_) => const CheckoutPage(),
+        settings: settings,
+      );
+    case SuccessTransactionPage.routeName:
+      return MaterialPageRoute(
+        builder: (_) => const SuccessTransactionPage(),
         settings: settings,
       );
     default:
