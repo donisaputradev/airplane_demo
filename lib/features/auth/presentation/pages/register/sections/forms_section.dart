@@ -11,18 +11,30 @@ class _FormSection extends StatelessWidget {
         children: [
           const RegularInput(
             label: 'Full Name',
+            hintText: 'Enter full name',
           ),
           Dimens.dp16.height,
           const RegularInput(
             label: 'Email Address',
+            hintText: 'Enter email address',
           ),
           Dimens.dp16.height,
           const PasswordInput(
             label: 'Password',
+            hintText: 'Enter password',
           ),
           Dimens.dp16.height,
           const RegularInput(
             label: 'Hobby',
+            hintText: 'Enter hobby',
+          ),
+          Dimens.dp16.height,
+          RegularInput(
+            label: 'Foto',
+            hintText: 'Upload foto',
+            prefixIcon: Icons.camera_alt_rounded,
+            onTap: () {},
+            readOnly: true,
           ),
           Dimens.dp32.height,
           ElevatedButton(

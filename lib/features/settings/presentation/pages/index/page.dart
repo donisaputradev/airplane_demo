@@ -1,4 +1,5 @@
 import 'package:airplane_demo/core/core.dart';
+import 'package:airplane_demo/features/auth/auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -31,7 +32,13 @@ class SettingsPage extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: context.theme.colorScheme.error,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamedAndRemoveUntil(
+                    context,
+                    RegisterPage.routeName,
+                    (route) => false,
+                  );
+                },
                 child: const Text('Sign Out'),
               ),
             ],
