@@ -48,10 +48,10 @@ class DetailPlacePage extends StatelessWidget {
                 padding: const EdgeInsets.all(Dimens.dp16),
                 child: Row(
                   children: [
-                    Expanded(
+                    const Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
+                        children: [
                           HeadingText(
                             'IDR 2.500.000',
                             style: TextStyle(fontSize: 18),

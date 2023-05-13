@@ -26,10 +26,10 @@ class _NewSection extends StatelessWidget {
                     ),
                   ),
                   Dimens.dp16.width,
-                  Expanded(
+                  const Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
+                      children: [
                         SubTitleText(
                           'Danau Toba',
                           style: TextStyle(fontSize: 18),

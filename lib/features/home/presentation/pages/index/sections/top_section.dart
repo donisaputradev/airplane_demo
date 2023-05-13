@@ -48,8 +48,8 @@ class _TopSection extends StatelessWidget {
                                     bottomLeft: Radius.circular(Dimens.dp18),
                                   ),
                                 ),
-                                child: Row(
-                                  children: const [
+                                child: const Row(
+                                  children: [
                                     Icon(
                                       Icons.star_rate_rounded,
                                       color: AppColors.amber,

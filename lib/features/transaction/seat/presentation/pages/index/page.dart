@@ -24,9 +24,9 @@ class ChooseSeatPage extends StatelessWidget {
           CardShadow(
             child: Column(
               children: [
-                Row(
+                const Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
+                  children: [
                     Expanded(child: ColumnSeat(title: 'A')),
                     Expanded(child: ColumnSeat(title: 'B')),
                     Expanded(child: ColumnSeat(title: 'B', isNumber: true)),

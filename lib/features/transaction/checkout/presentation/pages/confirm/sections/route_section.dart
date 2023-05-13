@@ -14,20 +14,20 @@ class _RouteSection extends StatelessWidget {
         Dimens.dp16.height,
         Row(
           children: [
-            Expanded(
+            const Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
+                children: [
                   HeadingText('CGK'),
                   RegularText('Tangerang'),
                 ],
               ),
             ),
             Dimens.dp16.width,
-            Expanded(
+            const Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
-                children: const [
+                children: [
                   HeadingText(
                     'TLC',
                     align: TextAlign.end,
