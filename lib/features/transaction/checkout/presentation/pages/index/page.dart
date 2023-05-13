@@ -24,3 +24,5 @@ class TransactionPage extends StatelessWidget {
     );
   }
 }
+
+// flutterfire config --project=airplanedemo-157e8 --out=lib/firebase_options_stag.dart --ios-bundle-id=com.donisaputra.airplane.stag --android-app-id=com.donisaputra.airplane.stag --macos-bundle-id=com.donisaputra.airplane.stag --web-app-id=com.donisaputra.airplane.stag

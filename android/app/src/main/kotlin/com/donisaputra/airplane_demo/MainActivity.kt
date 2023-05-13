@@ -1,4 +1,4 @@
-package com.example.airplane_demo
+package com.donisaputra.airplane
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -1,0 +1,118 @@
+{
+  "project_info": {
+    "project_number": "806867048106",
+    "project_id": "airplanedemo-157e8",
+    "storage_bucket": "airplanedemo-157e8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:806867048106:android:adff32fdb831c4cf28a2d3",
+        "android_client_info": {
+          "package_name": "com.donisaputra.airplane"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "806867048106-n2mbmlfkb2lmq21qvq15nmjpjf6rlcn5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXU2s6iSil5HTArxstfAz-DdkhOFliPUk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "806867048106-n2mbmlfkb2lmq21qvq15nmjpjf6rlcn5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "806867048106-ji6kumof8vgmif4tde6op62lgllaoong.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.donisaputra.airplane"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:806867048106:android:b63790eabc6fc55928a2d3",
+        "android_client_info": {
+          "package_name": "com.donisaputra.airplane.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "806867048106-n2mbmlfkb2lmq21qvq15nmjpjf6rlcn5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXU2s6iSil5HTArxstfAz-DdkhOFliPUk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "806867048106-n2mbmlfkb2lmq21qvq15nmjpjf6rlcn5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "806867048106-ji6kumof8vgmif4tde6op62lgllaoong.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.donisaputra.airplane"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:806867048106:android:55acdb0cf57caed128a2d3",
+        "android_client_info": {
+          "package_name": "com.donisaputra.airplane.stag"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "806867048106-n2mbmlfkb2lmq21qvq15nmjpjf6rlcn5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXU2s6iSil5HTArxstfAz-DdkhOFliPUk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "806867048106-n2mbmlfkb2lmq21qvq15nmjpjf6rlcn5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "806867048106-ji6kumof8vgmif4tde6op62lgllaoong.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.donisaputra.airplane"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
