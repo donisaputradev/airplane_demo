@@ -1,8 +1,10 @@
 import 'package:airplane_demo/app/config.dart';
 import 'package:airplane_demo/core/core.dart';
+import 'package:airplane_demo/features/auth/auth.dart';
 import 'package:airplane_demo/features/settings/settings.dart';
 import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hive/hive.dart';
@@ -16,6 +18,32 @@ Future<void> setupLocator() async {
   // |+-----------------------------------------------------------------------+|
   // |+                               FEATURES                                +|
   // |+-----------------------------------------------------------------------+|
+
+  // ------------------------------ AUTH ---------------------------------
+
+  // Data
+  getIt
+    ..registerLazySingleton<AuthFirebaseDataSource>(
+      () => AuthFirebaseDataSourceImpl(getIt()),
+    )
+    ..registerLazySingleton<AuthRepository>(() => AuthRepositoryImpl(getIt()));
+
+  // Domain
+  getIt
+    ..registerLazySingleton(() => SignOutUseCase(getIt()))
+    ..registerLazySingleton(() => CheckAuthUseCase(getIt()))
+    ..registerLazySingleton(() => SignUpUseCase(getIt()));
+
+  // Presentation
+  getIt.registerFactory(
+    () => AuthBloc(
+      signOutUseCase: getIt(),
+      signUpUseCase: getIt(),
+      checkAuthUseCase: getIt(),
+    ),
+  );
+
+  // ------------------------------ END AUTH -------------------------------
 
   // ------------------------------ SETTINGS ---------------------------------
 
@@ -56,9 +84,6 @@ Future<void> setupLocator() async {
         getThemeSetting: getIt(),
         saveThemeSetting: getIt(),
       ),
-    )
-    ..registerFactory(
-      () => SplashBloc(),
     );
 
   // ------------------------------ END SETTINGS -------------------------------
@@ -76,6 +101,7 @@ Future<void> _setupCore() async {
   getIt.registerLazySingleton(
     () => CaptureErrorUseCase(),
   );
+  getIt.registerLazySingleton(() => FirebaseAuth.instance);
   getIt.registerLazySingleton(
     () => Dio()
       ..options = BaseOptions(baseUrl: AppConfig.baseUrl.value)

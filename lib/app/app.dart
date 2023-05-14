@@ -1,11 +1,13 @@
 import 'package:airplane_demo/app/config.dart';
 import 'package:airplane_demo/app/generate.dart';
 import 'package:airplane_demo/core/core.dart';
+import 'package:airplane_demo/features/auth/auth.dart';
 import 'package:airplane_demo/features/settings/settings.dart';
 import 'package:airplane_demo/l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get_it/get_it.dart';
 
 class App extends StatelessWidget {
@@ -35,8 +37,7 @@ class App extends StatelessWidget {
               GetIt.I<LanguageBloc>()..add(const LanguageStarted()),
         ),
         BlocProvider(
-          create: (context) =>
-              GetIt.I<SplashBloc>()..add(const NavigateSplashEvent()),
+          create: (context) => GetIt.I<AuthBloc>()..add(CheckAuthEvent()),
         ),
       ],
       child: const _AppWidget(),
@@ -64,6 +65,7 @@ class _AppWidget extends StatelessWidget {
       navigatorObservers: [routeObserver],
       onGenerateRoute: onGenerateRoute,
       home: const SplashPage(),
+      builder: EasyLoading.init(),
     );
   }
 }

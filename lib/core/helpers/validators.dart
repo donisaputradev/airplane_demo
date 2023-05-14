@@ -11,6 +11,15 @@ class Validators {
 4[987654310]|3[9643210]|2[70]|7|1)\d{6,14}$''',
   );
 
+  static bool nameValidator(String text) {
+    RegExp exp = RegExp("^[a-zA-Z0-9]+((_|-|\\.)?[a-zA-Z0-9])*\$");
+    if (!exp.hasMatch(text) && text.isNotEmpty) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   static final RegExp _postCodeRegExp = RegExp(r'^[0-9]{5}(?:-[0-9]{4})?$');
 
   static bool isValidEmail(String email) {

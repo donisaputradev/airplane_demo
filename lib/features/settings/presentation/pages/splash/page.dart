@@ -1,5 +1,7 @@
 import 'package:airplane_demo/app/config.dart';
 import 'package:airplane_demo/core/core.dart';
+import 'package:airplane_demo/features/auth/auth.dart';
+import 'package:airplane_demo/features/home/home.dart';
 import 'package:airplane_demo/features/settings/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,9 +12,15 @@ class SplashPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<SplashBloc, SplashState>(
+    return BlocListener<AuthBloc, AuthState>(
       listener: (context, state) {
-        if (state is SplashSuccess) {
+        if (state.status == AuthStateStatus.authorized) {
+          Navigator.pushNamedAndRemoveUntil(
+            context,
+            MainPage.routeName,
+            (route) => false,
+          );
+        } else if (state.status == AuthStateStatus.unauthorized) {
           Navigator.pushNamedAndRemoveUntil(
             context,
             OnboardingPage.routeName,

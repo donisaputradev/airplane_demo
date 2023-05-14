@@ -7,6 +7,7 @@ import 'package:airplane_demo/app/locator.dart';
 import 'package:airplane_demo/core/core.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 
 import 'firebase_options_stag.dart';
@@ -23,6 +24,8 @@ Future<void> main() async {
       );
 
       await setupLocator();
+
+      Bloc.observer = AppBlocObserver();
 
       return runApp(const App());
     },

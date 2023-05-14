@@ -57,7 +57,7 @@ class LightTheme {
         style: ElevatedButton.styleFrom(
           foregroundColor: scheme.onPrimary,
           backgroundColor: primaryColor,
-          disabledBackgroundColor: secondaryColor.withOpacity(.7),
+          disabledBackgroundColor: primaryColor.withOpacity(.3),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(Dimens.dp16),
           ),

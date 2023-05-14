@@ -24,7 +24,7 @@ Map<String, dynamic> _$SettingsToJson(Settings instance) {
     }
   }
 
-  writeNotNull('language', instance.language?.toJson());
+  writeNotNull('language', instance.language);
   writeNotNull('theme', _$AppThemeEnumMap[instance.theme]);
   return val;
 }
