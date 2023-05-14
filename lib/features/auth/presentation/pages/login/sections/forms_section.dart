@@ -8,24 +8,14 @@ class _FormSection extends StatefulWidget {
 }
 
 class _FormSectionState extends State<_FormSection> {
-  final nameController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-  final hobbyController = TextEditingController();
 
   @override
   void initState() {
-    nameController.addListener(_onChangeName);
     emailController.addListener(_onChangeEmail);
     passwordController.addListener(_onChangePassword);
-    hobbyController.addListener(() {
-      setState(() {});
-    });
     super.initState();
-  }
-
-  _onChangeName() {
-    context.read<AuthBloc>().add(NameChangeEvent(nameController.text));
   }
 
   _onChangePassword() {
@@ -63,15 +53,6 @@ class _FormSectionState extends State<_FormSection> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               RegularInput(
-                inputType: TextInputType.name,
-                controller: nameController,
-                label: 'Full Name',
-                hintText: 'Enter full name',
-                errorText:
-                    state.name.isNotValid ? 'please input a valid name' : null,
-              ),
-              Dimens.dp16.height,
-              RegularInput(
                 inputType: TextInputType.emailAddress,
                 controller: emailController,
                 label: 'Email Address',
@@ -89,26 +70,17 @@ class _FormSectionState extends State<_FormSection> {
                     ? 'please input at least 6 characters'
                     : null,
               ),
-              Dimens.dp16.height,
-              RegularInput(
-                inputType: TextInputType.name,
-                controller: hobbyController,
-                label: 'Hobby',
-                hintText: 'Enter hobby',
-              ),
               Dimens.dp32.height,
               ElevatedButton(
-                onPressed: state.isAllFormValid
+                onPressed: state.isAllFormLoginValid
                     ? () {
-                        context.read<AuthBloc>().add(SignUpEvent(
-                              name: nameController.text,
+                        context.read<AuthBloc>().add(SignInEvent(
                               email: emailController.text,
                               password: passwordController.text,
-                              hobby: hobbyController.text,
                             ));
                       }
                     : null,
-                child: const Text('Get Started'),
+                child: const Text('Sign In'),
               ),
             ],
           );
@@ -119,9 +91,7 @@ class _FormSectionState extends State<_FormSection> {
 
   @override
   void dispose() {
-    nameController.dispose();
     passwordController.dispose();
-    hobbyController.dispose();
     emailController.dispose();
     super.dispose();
   }

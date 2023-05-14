@@ -32,16 +32,21 @@ Future<void> setupLocator() async {
   getIt
     ..registerLazySingleton(() => SignOutUseCase(getIt()))
     ..registerLazySingleton(() => CheckAuthUseCase(getIt()))
+    ..registerLazySingleton(() => GetUserUseCase(getIt()))
+    ..registerLazySingleton(() => SignInUseCase(getIt()))
     ..registerLazySingleton(() => SignUpUseCase(getIt()));
 
   // Presentation
-  getIt.registerFactory(
-    () => AuthBloc(
-      signOutUseCase: getIt(),
-      signUpUseCase: getIt(),
-      checkAuthUseCase: getIt(),
-    ),
-  );
+  getIt
+    ..registerFactory(
+      () => AuthBloc(
+        signOutUseCase: getIt(),
+        signUpUseCase: getIt(),
+        checkAuthUseCase: getIt(),
+        signInUseCase: getIt(),
+      ),
+    )
+    ..registerFactory(() => UserBloc(getUserUseCase: getIt()));
 
   // ------------------------------ END AUTH -------------------------------
 

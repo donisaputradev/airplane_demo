@@ -1,3 +1,4 @@
+import 'package:airplane_demo/features/auth/auth.dart';
 import 'package:airplane_demo/features/home/home.dart';
 import 'package:airplane_demo/features/settings/settings.dart';
 import 'package:airplane_demo/features/transaction/checkout/checkout.dart';
@@ -34,6 +35,12 @@ class _MainViewState extends State<MainView> {
     const ShowWalletPage(),
     const SettingsPage(),
   ];
+
+  @override
+  void initState() {
+    context.read<UserBloc>().add(GetUserEvent());
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

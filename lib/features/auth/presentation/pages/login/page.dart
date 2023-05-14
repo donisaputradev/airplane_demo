@@ -7,10 +7,10 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 part 'sections/forms_section.dart';
 
-class RegisterPage extends StatelessWidget {
-  const RegisterPage({super.key});
+class LoginPage extends StatelessWidget {
+  const LoginPage({super.key});
 
-  static const String routeName = '/register';
+  static const String routeName = '/login';
 
   @override
   Widget build(BuildContext context) {
@@ -19,20 +19,20 @@ class RegisterPage extends StatelessWidget {
         padding: const EdgeInsets.all(Dimens.dp16),
         children: [
           Dimens.dp24.height,
-          const HeadingText('Join us and get\nyour next journey'),
+          const HeadingText('Sign In with your\nexisting account'),
           Dimens.dp24.height,
           const _FormSection(),
-          Dimens.dp50.height,
+          (Dimens.height(context) / 6).height,
           GestureDetector(
             onTap: () {
               Navigator.pushNamedAndRemoveUntil(
                 context,
-                LoginPage.routeName,
+                RegisterPage.routeName,
                 (route) => false,
               );
             },
             child: const RegularText(
-              'Have an account? Sign In',
+              'Dont\'t have an account? Sign Up',
               align: TextAlign.center,
               style: TextStyle(decoration: TextDecoration.underline),
             ),

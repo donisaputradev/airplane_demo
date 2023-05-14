@@ -4,6 +4,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 abstract class AuthFirebaseDataSource {
+  Future<UserModel> signIn({
+    required String email,
+    required String password,
+  });
+
   Future<UserModel> signUp({
     required String name,
     required String email,
@@ -14,6 +19,8 @@ abstract class AuthFirebaseDataSource {
   Future<bool> signOut();
 
   Future<String?> checkAuth();
+
+  Future<UserModel> getUser();
 }
 
 class AuthFirebaseDataSourceImpl implements AuthFirebaseDataSource {
@@ -69,6 +76,44 @@ class AuthFirebaseDataSourceImpl implements AuthFirebaseDataSource {
     try {
       final user = auth.currentUser;
       return user?.uid;
+    } catch (e) {
+      throw GeneralServerException(message: e.toString());
+    }
+  }
+
+  @override
+  Future<UserModel> getUser() async {
+    try {
+      final user = auth.currentUser;
+      final response = await userReference.doc(user?.uid).get();
+      return UserModel(
+        id: user!.uid,
+        name: response['name'],
+        email: response['email'],
+        hobby: response['hobby'],
+        balance: response['balance'],
+      );
+    } catch (e) {
+      throw GeneralServerException(message: e.toString());
+    }
+  }
+
+  @override
+  Future<UserModel> signIn(
+      {required String email, required String password}) async {
+    try {
+      final response = await auth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      final user = await userReference.doc(response.user?.uid).get();
+      return UserModel(
+        id: response.user!.uid,
+        name: user['name'],
+        email: user['email'],
+        hobby: user['hobby'],
+        balance: user['balance'],
+      );
     } catch (e) {
       throw GeneralServerException(message: e.toString());
     }

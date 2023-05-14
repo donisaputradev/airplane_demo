@@ -22,6 +22,11 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
         builder: (_) => const RegisterPage(),
         settings: settings,
       );
+    case LoginPage.routeName:
+      return CupertinoPageRoute(
+        builder: (_) => const LoginPage(),
+        settings: settings,
+      );
     case WalletPage.routeName:
       return CupertinoPageRoute(
         builder: (_) => const WalletPage(),

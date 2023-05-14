@@ -3,6 +3,11 @@ import 'package:airplane_demo/features/auth/auth.dart';
 import 'package:dartz/dartz.dart';
 
 abstract class AuthRepository {
+  Future<Either<Failure, User>> signIn({
+    required String email,
+    required String password,
+  });
+
   Future<Either<Failure, User>> signUp({
     required String name,
     required String email,
@@ -13,4 +18,6 @@ abstract class AuthRepository {
   Future<Either<Failure, bool>> signOut();
 
   Future<Either<Failure, String?>> checkAuth();
+
+  Future<Either<Failure, User>> getUser();
 }

@@ -18,6 +18,22 @@ class AuthRepositoryImpl extends AuthRepository {
   }
 
   @override
+  Future<Either<Failure, User>> signIn({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      final result = await firebaseAuth.signIn(
+        email: email,
+        password: password,
+      );
+      return Right(result.toEntity());
+    } on ServerException catch (e) {
+      return Left(ServerFailure(message: e.message, code: e.code));
+    }
+  }
+
+  @override
   Future<Either<Failure, User>> signUp({
     required String name,
     required String email,
@@ -42,6 +58,16 @@ class AuthRepositoryImpl extends AuthRepository {
     try {
       final result = await firebaseAuth.checkAuth();
       return Right(result);
+    } on ServerException catch (e) {
+      return Left(ServerFailure(message: e.message, code: e.code));
+    }
+  }
+
+  @override
+  Future<Either<Failure, User>> getUser() async {
+    try {
+      final result = await firebaseAuth.getUser();
+      return Right(result.toEntity());
     } on ServerException catch (e) {
       return Left(ServerFailure(message: e.message, code: e.code));
     }

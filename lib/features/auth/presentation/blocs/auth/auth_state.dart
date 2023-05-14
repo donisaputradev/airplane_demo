@@ -9,7 +9,6 @@ class AuthState extends Equatable {
     this.name = const NameFormZ.dirty(),
     this.password = const PasswordFormZ.dirty(),
     this.email = const EmailFormZ.dirty(),
-    this.uid,
   });
 
   factory AuthState.initial() {
@@ -21,12 +20,15 @@ class AuthState extends Equatable {
       (email.value.isNotEmpty && email.isValid) &&
       (password.value.isNotEmpty && password.isValid);
 
+  bool get isAllFormLoginValid =>
+      (email.value.isNotEmpty && email.isValid) &&
+      (password.value.isNotEmpty && password.isValid);
+
   final AuthStateStatus status;
   final Failure? failure;
   final NameFormZ name;
   final PasswordFormZ password;
   final EmailFormZ email;
-  final String? uid;
 
   AuthState copyWith({
     AuthStateStatus? status,
@@ -34,7 +36,6 @@ class AuthState extends Equatable {
     NameFormZ? name,
     PasswordFormZ? password,
     EmailFormZ? email,
-    String? uid,
   }) {
     return AuthState(
       failure: failure ?? this.failure,
@@ -42,10 +43,9 @@ class AuthState extends Equatable {
       password: password ?? this.password,
       name: name ?? this.name,
       email: email ?? this.email,
-      uid: uid ?? this.uid,
     );
   }
 
   @override
-  List<Object?> get props => [failure, status, uid, name, email, password];
+  List<Object?> get props => [failure, status, name, email, password];
 }

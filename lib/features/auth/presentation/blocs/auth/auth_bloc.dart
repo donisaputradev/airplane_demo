@@ -12,7 +12,33 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     required this.signOutUseCase,
     required this.signUpUseCase,
     required this.checkAuthUseCase,
+    required this.signInUseCase,
   }) : super(AuthState.initial()) {
+    on<SignInEvent>((event, emit) async {
+      try {
+        emit(state.copyWith(status: AuthStateStatus.loading));
+        final usecase = await signInUseCase(SignInParams(
+          email: event.email,
+          password: event.password,
+        ));
+        usecase.fold(
+          (l) {
+            emit(state.copyWith(
+              status: AuthStateStatus.failure,
+              failure: l,
+            ));
+          },
+          (r) {
+            emit(state.copyWith(status: AuthStateStatus.authorized));
+          },
+        );
+      } catch (exception, stackTrace) {
+        exception.recordError(
+          RecordErrorParams(exception: exception, stackTrace: stackTrace),
+        );
+      }
+    });
+
     on<SignUpEvent>((event, emit) async {
       try {
         emit(state.copyWith(status: AuthStateStatus.loading));
@@ -30,7 +56,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             ));
           },
           (r) {
-            emit(state.copyWith(status: AuthStateStatus.authorized, uid: r.id));
+            emit(state.copyWith(status: AuthStateStatus.authorized));
           },
         );
       } catch (exception, stackTrace) {
@@ -50,7 +76,12 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             failure: l,
           ));
         }, (r) {
-          emit(state.copyWith(status: AuthStateStatus.unauthorized));
+          emit(state.copyWith(
+            status: AuthStateStatus.unauthorized,
+            email: null,
+            name: null,
+            password: null,
+          ));
         });
       } catch (exception, stackTrace) {
         exception.recordError(
@@ -118,7 +149,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           },
           (r) {
             if (r != null) {
-              emit(state.copyWith(status: AuthStateStatus.authorized, uid: r));
+              emit(state.copyWith(status: AuthStateStatus.authorized));
             } else {
               emit(state.copyWith(status: AuthStateStatus.unauthorized));
             }
@@ -135,4 +166,5 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final SignOutUseCase signOutUseCase;
   final SignUpUseCase signUpUseCase;
   final CheckAuthUseCase checkAuthUseCase;
+  final SignInUseCase signInUseCase;
 }
