@@ -23,6 +23,7 @@ class MainAssets {
   static const checkIconSvg = '$_baseImagePath/svg/check_icon.svg';
   static const routeAirplaneSvg = '$_baseImagePath/svg/route_airplane.svg';
   static const successBookSvg = '$_baseImagePath/svg/success_book.svg';
+  static const emptySvg = '$_baseImagePath/svg/empty.svg';
 
   // ---------------------------- END IMAGES -----------------------------------
 
