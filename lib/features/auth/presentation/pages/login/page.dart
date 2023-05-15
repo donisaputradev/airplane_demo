@@ -1,6 +1,6 @@
 import 'package:airplane_demo/core/core.dart';
 import 'package:airplane_demo/features/auth/auth.dart';
-import 'package:airplane_demo/features/wallet/wallet.dart';
+import 'package:airplane_demo/features/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';

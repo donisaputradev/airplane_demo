@@ -43,7 +43,7 @@ class _FormSectionState extends State<_FormSection> {
             EasyLoading.dismiss();
             Navigator.pushNamedAndRemoveUntil(
               context,
-              WalletPage.routeName,
+              MainPage.routeName,
               (route) => false,
             );
           }
