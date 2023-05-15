@@ -3,9 +3,9 @@ import 'package:airplane_demo/features/transaction/checkout/checkout.dart';
 import 'package:flutter/material.dart';
 
 class CardDetail extends StatelessWidget {
-  const CardDetail({
-    super.key,
-  });
+  const CardDetail({super.key, required this.transaction, this.created});
+  final Transaction transaction;
+  final String? created;
 
   @override
   Widget build(BuildContext context) {
@@ -15,26 +15,23 @@ class CardDetail extends StatelessWidget {
         children: [
           Row(
             children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(Dimens.dp18),
-                child: Image.network(
-                  'https://cdn-brilio-net.akamaized.net/news/2016/04/07/53225/228188-jembatan-indah-1-20.jpg',
-                  height: 70,
-                  width: 70,
-                  fit: BoxFit.cover,
-                ),
+              SmartNetworkImage(
+                transaction.destination.image,
+                width: 70,
+                height: 70,
+                fit: BoxFit.cover,
               ),
               Dimens.dp16.width,
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const HeadingText(
-                      'Lake Ciliwung',
-                      style: TextStyle(fontSize: 18),
+                    HeadingText(
+                      transaction.destination.name,
+                      style: const TextStyle(fontSize: 18),
                     ),
                     Dimens.dp4.height,
-                    const RegularText('Tangerang'),
+                    RegularText(transaction.destination.city),
                   ],
                 ),
               ),
@@ -43,43 +40,47 @@ class CardDetail extends StatelessWidget {
                 Icons.star_rate_rounded,
                 color: AppColors.amber,
               ),
-              const SubTitleText('4.8'),
+              SubTitleText('${transaction.destination.rating}'),
             ],
           ),
           Dimens.dp20.height,
           const SubTitleText('Booking Details'),
           Dimens.dp8.height,
-          const TileDetail(
+          TileDetail(
             title: 'Traveler',
-            value: '2 Person',
+            value: '${transaction.amount} Person',
           ),
-          const TileDetail(
+          TileDetail(
             title: 'Seat',
-            value: 'A3, B3',
+            value: transaction.selectedSeats,
           ),
-          const TileDetail(
+          TileDetail(
             title: 'Insurance',
-            value: 'YES',
-            color: AppColors.teal,
+            value: transaction.insurance ? 'YES' : 'NO',
+            color: transaction.insurance ? AppColors.teal : AppColors.red,
           ),
-          const TileDetail(
+          TileDetail(
             title: 'Refundable',
-            value: 'NO',
-            color: AppColors.red,
+            value: transaction.refundable ? 'YES' : 'NO',
+            color: transaction.refundable ? AppColors.teal : AppColors.red,
           ),
-          const TileDetail(
+          TileDetail(
             title: 'VAT',
-            value: '45%',
+            value: '${transaction.vat.toInt()}%',
           ),
-          const TileDetail(
+          TileDetail(
             title: 'Price',
-            value: 'IDR 8.500.690',
+            value: transaction.price.toIDR(),
           ),
           TileDetail(
             title: 'Grand Total',
-            value: 'IDR 12.000.000',
+            value: transaction.grandTotal.toIDR(),
             color: context.theme.primaryColor,
           ),
+          if (created != null) ...[
+            Dimens.dp16.height,
+            RegularText(DateTime.parse(created!).fullDateTime),
+          ]
         ],
       ),
     );

@@ -2,7 +2,10 @@ import 'package:airplane_demo/app/config.dart';
 import 'package:airplane_demo/app/generate.dart';
 import 'package:airplane_demo/core/core.dart';
 import 'package:airplane_demo/features/auth/auth.dart';
+import 'package:airplane_demo/features/place/detail/detail.dart';
 import 'package:airplane_demo/features/settings/settings.dart';
+import 'package:airplane_demo/features/transaction/checkout/checkout.dart';
+import 'package:airplane_demo/features/transaction/seat/seat.dart';
 import 'package:airplane_demo/l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -40,6 +43,9 @@ class App extends StatelessWidget {
           create: (context) => GetIt.I<AuthBloc>()..add(CheckAuthEvent()),
         ),
         BlocProvider(create: (context) => GetIt.I<UserBloc>()),
+        BlocProvider(create: (context) => GetIt.I<DestinationBloc>()),
+        BlocProvider(create: (context) => GetIt.I<SeatBloc>()),
+        BlocProvider(create: (context) => GetIt.I<TransactionBloc>()),
       ],
       child: const _AppWidget(),
     );

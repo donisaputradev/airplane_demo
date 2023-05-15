@@ -1,4 +1,5 @@
 import 'package:airplane_demo/core/core.dart';
+import 'package:airplane_demo/features/place/detail/detail.dart';
 import 'package:airplane_demo/features/transaction/seat/seat.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -7,7 +8,8 @@ part 'sections/detail_section.dart';
 part 'sections/title_section.dart';
 
 class DetailPlacePage extends StatelessWidget {
-  const DetailPlacePage({super.key});
+  const DetailPlacePage({super.key, required this.destination});
+  final Destination destination;
 
   static const String routeName = '/place/detail';
 
@@ -16,10 +18,10 @@ class DetailPlacePage extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          Image.network(
-            'https://cdn-brilio-net.akamaized.net/news/2016/04/07/53225/228188-jembatan-indah-1-20.jpg',
-            height: 450,
+          SmartNetworkImage(
+            destination.image,
             width: double.infinity,
+            height: 450,
             fit: BoxFit.cover,
           ),
           Container(
@@ -40,23 +42,23 @@ class DetailPlacePage extends StatelessWidget {
             padding: const EdgeInsets.all(Dimens.dp16),
             children: [
               Dimens.dp300.height,
-              const _TitleSection(),
+              _TitleSection(destination: destination),
               Dimens.dp30.height,
-              const _DetailSection(),
+              _DetailSection(destination: destination),
               Dimens.dp16.height,
               Padding(
                 padding: const EdgeInsets.all(Dimens.dp16),
                 child: Row(
                   children: [
-                    const Expanded(
+                    Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           HeadingText(
-                            'IDR 2.500.000',
-                            style: TextStyle(fontSize: 18),
+                            destination.price.toIDR(),
+                            style: const TextStyle(fontSize: 18),
                           ),
-                          RegularText('per orang'),
+                          const RegularText('per orang'),
                         ],
                       ),
                     ),
@@ -66,9 +68,13 @@ class DetailPlacePage extends StatelessWidget {
                           Navigator.pushNamed(
                             context,
                             ChooseSeatPage.routeName,
+                            arguments: destination,
                           );
                         },
-                        child: const Text('Book Now'),
+                        child: const Text(
+                          'Book Now',
+                          style: TextStyle(fontSize: 14),
+                        ),
                       ),
                     ),
                   ],

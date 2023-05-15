@@ -32,7 +32,9 @@ dependencies:
   internet_connection_checker: ^1.0.0+1
   intl: ^0.18.0
   json_annotation: ^4.8.1
+  loading_animation_widget: ^1.2.0+4
   path_provider: ^2.0.14
+  shimmer: ^2.0.0
   stream_transform: ^2.1.0
 
 dev_dependencies:

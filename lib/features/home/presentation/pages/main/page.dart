@@ -1,5 +1,6 @@
 import 'package:airplane_demo/features/auth/auth.dart';
 import 'package:airplane_demo/features/home/home.dart';
+import 'package:airplane_demo/features/place/detail/detail.dart';
 import 'package:airplane_demo/features/settings/settings.dart';
 import 'package:airplane_demo/features/transaction/checkout/checkout.dart';
 import 'package:airplane_demo/features/wallet/wallet.dart';
@@ -39,6 +40,7 @@ class _MainViewState extends State<MainView> {
   @override
   void initState() {
     context.read<UserBloc>().add(GetUserEvent());
+    context.read<DestinationBloc>().add(GetDestinationEvent());
     super.initState();
   }
 

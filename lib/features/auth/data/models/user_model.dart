@@ -12,6 +12,7 @@ class UserModel extends Equatable {
     required this.email,
     required this.hobby,
     required this.balance,
+    required this.joined,
   });
 
   final String id;
@@ -19,6 +20,7 @@ class UserModel extends Equatable {
   final String email;
   final String hobby;
   final int balance;
+  final String joined;
 
   User toEntity() {
     return User(
@@ -27,6 +29,7 @@ class UserModel extends Equatable {
       email: email,
       hobby: hobby,
       balance: balance,
+      joined: joined,
     );
   }
 
@@ -36,5 +39,5 @@ class UserModel extends Equatable {
   Map<String, dynamic> toJson() => _$UserModelToJson(this);
 
   @override
-  List<Object?> get props => [id, name, email, hobby, balance];
+  List<Object?> get props => [id, name, email, hobby, balance, joined];
 }

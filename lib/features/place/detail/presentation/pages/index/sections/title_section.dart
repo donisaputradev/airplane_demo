@@ -1,7 +1,8 @@
 part of '../page.dart';
 
 class _TitleSection extends StatelessWidget {
-  const _TitleSection();
+  const _TitleSection({required this.destination});
+  final Destination destination;
 
   @override
   Widget build(BuildContext context) {
@@ -12,13 +13,13 @@ class _TitleSection extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               HeadingText(
-                'Lake Ciliwung',
+                destination.name,
                 style: TextStyle(
                   color: context.adaptiveTheme.backgroundColor,
                 ),
               ),
               RegularText(
-                'Tangerang',
+                destination.city,
                 style: TextStyle(
                   color: context.adaptiveTheme.backgroundColor,
                 ),
@@ -33,7 +34,7 @@ class _TitleSection extends StatelessWidget {
         ),
         Dimens.dp8.width,
         SubTitleText(
-          '4.8',
+          '${destination.rating}',
           style: TextStyle(
             color: context.adaptiveTheme.backgroundColor,
           ),

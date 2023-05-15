@@ -1,9 +1,23 @@
 import 'package:airplane_demo/core/core.dart';
 import 'package:airplane_demo/features/transaction/checkout/checkout.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class TransactionPage extends StatelessWidget {
+part 'sections/skeleton_section.dart';
+
+class TransactionPage extends StatefulWidget {
   const TransactionPage({super.key});
+
+  @override
+  State<TransactionPage> createState() => _TransactionPageState();
+}
+
+class _TransactionPageState extends State<TransactionPage> {
+  @override
+  void initState() {
+    context.read<TransactionBloc>().add(GetTransactionsEvent());
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -11,18 +25,25 @@ class TransactionPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Transaction'),
       ),
-      body: ListView(
-        padding: const EdgeInsets.all(Dimens.dp16),
-        children: List.generate(
-          5,
-          (index) => const Padding(
-            padding: EdgeInsets.only(bottom: Dimens.dp16),
-            child: CardDetail(),
-          ),
-        ),
+      body: BlocBuilder<TransactionBloc, TransactionState>(
+        builder: (context, state) {
+          if (state.statusList == TransactionStateStatus.success) {
+            return ListView(
+              padding: const EdgeInsets.all(Dimens.dp16),
+              children: state.transactions
+                  .map(
+                    (e) => Padding(
+                      padding: const EdgeInsets.only(bottom: Dimens.dp16),
+                      child: CardDetail(transaction: e, created: e.created),
+                    ),
+                  )
+                  .toList(),
+            );
+          } else {
+            return const _SkeletonSection();
+          }
+        },
       ),
     );
   }
 }
-
-// flutterfire config --project=airplanedemo-157e8 --out=lib/firebase_options_stag.dart --ios-bundle-id=com.donisaputra.airplane.stag --android-app-id=com.donisaputra.airplane.stag --macos-bundle-id=com.donisaputra.airplane.stag --web-app-id=com.donisaputra.airplane.stag

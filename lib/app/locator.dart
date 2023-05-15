@@ -1,7 +1,10 @@
 import 'package:airplane_demo/app/config.dart';
 import 'package:airplane_demo/core/core.dart';
 import 'package:airplane_demo/features/auth/auth.dart';
+import 'package:airplane_demo/features/place/detail/detail.dart';
 import 'package:airplane_demo/features/settings/settings.dart';
+import 'package:airplane_demo/features/transaction/checkout/checkout.dart';
+import 'package:airplane_demo/features/transaction/seat/seat.dart';
 import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -49,6 +52,55 @@ Future<void> setupLocator() async {
     ..registerFactory(() => UserBloc(getUserUseCase: getIt()));
 
   // ------------------------------ END AUTH -------------------------------
+
+  // ------------------------------ DESTINATION ---------------------------------
+
+  // Data
+  getIt
+    ..registerLazySingleton<DestinationFirebaseDataSource>(
+      () => DestinationFirebaseDataSourceImpl(),
+    )
+    ..registerLazySingleton<DestinationRepository>(
+      () => DestinationRepositoryImpl(getIt()),
+    );
+
+  // Domain
+  getIt.registerLazySingleton(() => GetDestinationUseCase(getIt()));
+
+  // Presentation
+  getIt.registerFactory(
+    () => DestinationBloc(getDestinationUseCase: getIt()),
+  );
+
+  // ------------------------------ END DESTINATION -------------------------------
+
+  // ------------------------------ TRANSACTION ---------------------------------
+
+  // Data
+  getIt
+    ..registerLazySingleton<TransactionFirebaseDataSource>(
+      () => TransactionFirebaseDataSourceImpl(getIt()),
+    )
+    ..registerLazySingleton<TransactionRepository>(
+      () => TransactionRepositoryImpl(getIt()),
+    );
+
+  // Domain
+  getIt
+    ..registerLazySingleton(() => CreateTransactionUseCase(getIt()))
+    ..registerLazySingleton(() => GetTransactionsUseCase(getIt()));
+
+  // Presentation
+  getIt
+    ..registerFactory(() => SeatBloc())
+    ..registerFactory(
+      () => TransactionBloc(
+        createTransactionUseCase: getIt(),
+        getTransactionsUseCase: getIt(),
+      ),
+    );
+
+  // ------------------------------ END TRANSACTION -------------------------------
 
   // ------------------------------ SETTINGS ---------------------------------
 

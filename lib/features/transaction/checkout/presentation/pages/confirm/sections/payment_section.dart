@@ -32,18 +32,22 @@ class _PaymentSection extends StatelessWidget {
                 ),
               ),
               Dimens.dp16.width,
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const HeadingText(
-                      'IDR 80.400.000',
-                      style: TextStyle(fontSize: 18),
+              BlocBuilder<UserBloc, UserState>(
+                builder: (context, state) {
+                  return Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        HeadingText(
+                          (state.user?.balance ?? 0).toIDR(),
+                          style: const TextStyle(fontSize: 18),
+                        ),
+                        Dimens.dp6.height,
+                        const RegularText('Current Balance'),
+                      ],
                     ),
-                    Dimens.dp6.height,
-                    const RegularText('Current Balance'),
-                  ],
-                ),
+                  );
+                },
               ),
             ],
           ),

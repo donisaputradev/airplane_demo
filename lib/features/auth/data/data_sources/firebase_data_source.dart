@@ -21,6 +21,8 @@ abstract class AuthFirebaseDataSource {
   Future<String?> checkAuth();
 
   Future<UserModel> getUser();
+
+  Future<bool> updateBalance({required int balance});
 }
 
 class AuthFirebaseDataSourceImpl implements AuthFirebaseDataSource {
@@ -43,11 +45,13 @@ class AuthFirebaseDataSourceImpl implements AuthFirebaseDataSource {
         email: email,
         password: password,
       );
+      final joined = DateTime.now().toIso8601String();
       await userReference.doc(authCredential.user?.uid).set({
         'email': email,
         'name': name,
         'hobby': hobby,
         'balance': balance,
+        'joined': joined,
       });
       return UserModel(
         id: authCredential.user?.uid ?? '',
@@ -55,6 +59,7 @@ class AuthFirebaseDataSourceImpl implements AuthFirebaseDataSource {
         email: email,
         hobby: hobby,
         balance: balance,
+        joined: joined,
       );
     } catch (e) {
       throw GeneralServerException(message: e.toString());
@@ -92,6 +97,7 @@ class AuthFirebaseDataSourceImpl implements AuthFirebaseDataSource {
         email: response['email'],
         hobby: response['hobby'],
         balance: response['balance'],
+        joined: response['joined'],
       );
     } catch (e) {
       throw GeneralServerException(message: e.toString());
@@ -113,7 +119,22 @@ class AuthFirebaseDataSourceImpl implements AuthFirebaseDataSource {
         email: user['email'],
         hobby: user['hobby'],
         balance: user['balance'],
+        joined: user['joined'],
       );
+    } catch (e) {
+      throw GeneralServerException(message: e.toString());
+    }
+  }
+
+  @override
+  Future<bool> updateBalance({required int balance}) async {
+    try {
+      final user = auth.currentUser;
+      final detailUser = await userReference.doc(user?.uid).get();
+      await userReference.doc(user?.uid).update({
+        'balance': detailUser['balance'] - balance,
+      });
+      return true;
     } catch (e) {
       throw GeneralServerException(message: e.toString());
     }

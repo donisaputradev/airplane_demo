@@ -1,3 +1,4 @@
+import 'package:airplane_demo/app/config.dart';
 import 'package:airplane_demo/core/core.dart';
 import 'package:airplane_demo/features/auth/auth.dart';
 import 'package:airplane_demo/features/place/detail/detail.dart';
@@ -6,6 +7,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'sections/top_section.dart';
 part 'sections/new_section.dart';
+part 'sections/skeleton_top_section.dart';
+part 'sections/skeleton_new_section.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -27,7 +30,14 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                   Dimens.dp8.height,
-                  const CircleAvatar(),
+                  CircleAvatar(
+                    radius: Dimens.dp24,
+                    child: SmartNetworkImage(
+                      AppConfig.profileUrl,
+                      fit: BoxFit.cover,
+                      radius: BorderRadius.circular(Dimens.dp100),
+                    ),
+                  ),
                 ],
               ),
               Dimens.dp8.height,

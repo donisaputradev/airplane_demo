@@ -39,17 +39,23 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       );
     case DetailPlacePage.routeName:
       return CupertinoPageRoute(
-        builder: (_) => const DetailPlacePage(),
+        builder: (_) => DetailPlacePage(
+          destination: settings.arguments as Destination,
+        ),
         settings: settings,
       );
     case ChooseSeatPage.routeName:
       return CupertinoPageRoute(
-        builder: (_) => const ChooseSeatPage(),
+        builder: (_) => ChooseSeatPage(
+          destination: settings.arguments as Destination,
+        ),
         settings: settings,
       );
     case CheckoutPage.routeName:
       return CupertinoPageRoute(
-        builder: (_) => const CheckoutPage(),
+        builder: (_) => CheckoutPage(
+          transaction: settings.arguments as Transaction,
+        ),
         settings: settings,
       );
     case SuccessTransactionPage.routeName:

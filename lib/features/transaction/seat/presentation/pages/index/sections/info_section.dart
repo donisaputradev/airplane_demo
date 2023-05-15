@@ -21,6 +21,7 @@ class _InfoSection extends StatelessWidget {
             children: [
               const CardBox(
                 cardEnum: CardBoxEnum.selected,
+                isInfo: true,
               ),
               Dimens.dp6.width,
               RegularText.normalSolid(context, 'Selected'),

@@ -14,6 +14,8 @@ class AppConfig {
   /// And by default title in `MaterialApp` change
   static const String appName = 'Airplane';
   static const String fontFamily = 'Poppins';
+  static const String profileUrl =
+      'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png';
 
   /// Base URL APIs App
   static const FlavorConfig<String> baseUrl = FlavorConfig<String>(

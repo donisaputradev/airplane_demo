@@ -7,11 +7,13 @@ class CardBox extends StatelessWidget {
   const CardBox({
     super.key,
     this.isBorder = true,
+    this.isInfo = false,
     this.cardEnum = CardBoxEnum.available,
     this.size,
     this.radius,
   });
   final bool isBorder;
+  final bool isInfo;
   final CardBoxEnum cardEnum;
   final double? size;
   final double? radius;
@@ -30,6 +32,14 @@ class CardBox extends StatelessWidget {
         border: isBorder ? Border.all(color: context.theme.primaryColor) : null,
         borderRadius: BorderRadius.circular(radius ?? Dimens.dp6),
       ),
+      child: cardEnum == CardBoxEnum.selected && isInfo == false
+          ? Center(
+              child: RegularText.mediumSolid(
+              context,
+              'You',
+              style: TextStyle(color: context.theme.scaffoldBackgroundColor),
+            ))
+          : null,
     );
   }
 }
