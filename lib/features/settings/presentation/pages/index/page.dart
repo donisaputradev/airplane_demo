@@ -1,6 +1,7 @@
 import 'package:airplane_demo/app/config.dart';
 import 'package:airplane_demo/core/core.dart';
 import 'package:airplane_demo/features/auth/auth.dart';
+import 'package:airplane_demo/features/settings/settings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -30,7 +31,27 @@ class SettingsPage extends StatelessWidget {
               ),
               Dimens.dp42.height,
               const _ProfileSection(),
-              (Dimens.height(context) / 8).height,
+              (Dimens.height(context) / 32).height,
+              const RegularText('Theme', align: TextAlign.center),
+              BlocBuilder<ThemeBloc, ThemeState>(
+                builder: (context, theme) {
+                  return Switch(
+                    value: theme.theme == AppTheme.light,
+                    onChanged: (v) {
+                      if (v) {
+                        context.read<ThemeBloc>().add(
+                              const ThemeChanged(AppTheme.light),
+                            );
+                      } else {
+                        context.read<ThemeBloc>().add(
+                              const ThemeChanged(AppTheme.dark),
+                            );
+                      }
+                    },
+                  );
+                },
+              ),
+              (Dimens.height(context) / 32).height,
               BlocConsumer<AuthBloc, AuthState>(
                 listener: (context, state) {
                   if (state.status == AuthStateStatus.failure) {

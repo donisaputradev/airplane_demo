@@ -6,16 +6,16 @@ class DarkTheme {
   DarkTheme(this.primaryColor);
 
   final Color primaryColor;
-  static Color disabledTextColor = AppColors.gray[700]!;
-  static Color secondaryColor = AppColors.gray[700]!;
-  static Color disabledColor = AppColors.gray[700]!;
+  static Color disabledTextColor = AppColors.gray[300]!;
+  static Color secondaryColor = AppColors.gray[300]!;
+  static Color disabledColor = AppColors.gray[300]!;
   static Color textSolidColor = AppColors.gray[100]!;
   static Color errorColor = AppColors.red;
-  static Color dividerColor = AppColors.gray[300]!;
-  static Color inputBackgroundColor = AppColors.gray[100]!;
-  static Color scaffoldColor = AppColors.gray[100]!;
-  static Color cardColor = AppColors.gray[100]!;
-  static Color appBarColor = AppColors.gray[100]!;
+  static Color dividerColor = AppColors.gray[700]!;
+  static Color inputBackgroundColor = AppColors.gray[700]!;
+  static Color scaffoldColor = AppColors.gray[900]!;
+  static Color cardColor = AppColors.gray[700]!;
+  static Color appBarColor = Colors.black;
 
   ColorScheme get scheme => ColorScheme.dark(
         primary: primaryColor,
@@ -38,14 +38,12 @@ class DarkTheme {
   OutlinedButtonThemeData get outlineButton => OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
           foregroundColor: primaryColor,
-          side: BorderSide(
-            color: primaryColor,
-          ),
+          side: BorderSide(color: primaryColor),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(Dimens.dp14),
+            borderRadius: BorderRadius.circular(Dimens.dp16),
           ),
           padding: const EdgeInsets.symmetric(
-            vertical: Dimens.dp12,
+            vertical: Dimens.dp14,
             horizontal: Dimens.dp24,
           ),
           textStyle: text.labelLarge?.copyWith(
@@ -58,15 +56,15 @@ class DarkTheme {
   ElevatedButtonThemeData get elevatedButton => ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           foregroundColor: scheme.onPrimary,
-          backgroundColor: secondaryColor,
-          disabledBackgroundColor: secondaryColor.withOpacity(.7),
+          backgroundColor: primaryColor,
+          disabledBackgroundColor: primaryColor.withOpacity(.3),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(Dimens.dp14),
+            borderRadius: BorderRadius.circular(Dimens.dp16),
           ),
           shadowColor: Colors.transparent,
           padding: const EdgeInsets.symmetric(
-            vertical: Dimens.dp12,
-            horizontal: Dimens.dp24,
+            vertical: Dimens.dp14,
+            horizontal: Dimens.dp32,
           ),
           textStyle: text.labelLarge?.copyWith(
             color: scheme.onPrimary,
@@ -93,7 +91,7 @@ class DarkTheme {
           fontFamily: AppConfig.fontFamily,
           color: textSolidColor,
           fontWeight: FontWeight.w600,
-          fontSize: 16,
+          fontSize: Dimens.dp24,
         ),
         toolbarTextStyle: text.titleLarge?.copyWith(
           color: textSolidColor,
@@ -101,7 +99,9 @@ class DarkTheme {
           fontWeight: FontWeight.w600,
           fontSize: 16,
         ),
+        surfaceTintColor: appBarColor,
         elevation: .15,
+        scrolledUnderElevation: .15,
         shadowColor: dividerColor.withOpacity(0.5),
         iconTheme: IconThemeData(
           color: primaryColor,
@@ -121,40 +121,47 @@ class DarkTheme {
           horizontal: Dimens.dp16,
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide.none,
-          borderRadius: BorderRadius.circular(Dimens.dp14),
+          borderSide: BorderSide(
+            color: primaryColor.withOpacity(.3),
+          ),
+          borderRadius: BorderRadius.circular(Dimens.dp16),
         ),
         disabledBorder: OutlineInputBorder(
-          borderSide: BorderSide.none,
-          borderRadius: BorderRadius.circular(Dimens.dp14),
+          borderSide: BorderSide(
+            color: primaryColor.withOpacity(.3),
+          ),
+          borderRadius: BorderRadius.circular(Dimens.dp16),
         ),
         border: OutlineInputBorder(
-          borderSide: BorderSide.none,
-          borderRadius: BorderRadius.circular(Dimens.dp14),
+          borderSide: BorderSide(
+            color: primaryColor.withOpacity(.3),
+          ),
+          borderRadius: BorderRadius.circular(Dimens.dp16),
         ),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(
             color: primaryColor,
           ),
-          borderRadius: BorderRadius.circular(Dimens.dp14),
+          borderRadius: BorderRadius.circular(Dimens.dp16),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderSide: BorderSide(
             color: errorColor,
           ),
-          borderRadius: BorderRadius.circular(Dimens.dp14),
+          borderRadius: BorderRadius.circular(Dimens.dp16),
         ),
         errorBorder: OutlineInputBorder(
           borderSide: BorderSide(
             color: errorColor,
           ),
-          borderRadius: BorderRadius.circular(Dimens.dp14),
+          borderRadius: BorderRadius.circular(Dimens.dp16),
         ),
       );
 
   BottomNavigationBarThemeData get bottomNav => BottomNavigationBarThemeData(
         backgroundColor: cardColor,
         elevation: 8,
+        type: BottomNavigationBarType.fixed,
         unselectedItemColor: secondaryColor,
         selectedLabelStyle: const TextStyle(
           fontSize: Dimens.dp12,
@@ -218,13 +225,13 @@ class DarkTheme {
         titleMedium: TextStyle(
           color: textSolidColor,
           fontWeight: FontWeight.w600,
-          fontSize: Dimens.dp14,
+          fontSize: Dimens.dp16,
           fontFamily: AppConfig.fontFamily,
         ),
 
         labelLarge: const TextStyle(
-          fontSize: Dimens.dp14,
-          fontWeight: FontWeight.w600,
+          fontSize: Dimens.dp18,
+          fontWeight: FontWeight.w500,
           fontFamily: AppConfig.fontFamily,
         ),
         // Use for caption

@@ -19,7 +19,7 @@ extension AppThemeX on AppTheme {
   ThemeData toThemeData() {
     switch (this) {
       case AppTheme.dark:
-        return DarkTheme(AppColors.indigo).toTheme;
+        return DarkTheme(Colors.black).toTheme;
       case AppTheme.light:
         return LightTheme(AppColors.indigo).toTheme;
     }
