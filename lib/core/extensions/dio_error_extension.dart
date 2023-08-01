@@ -1,10 +1,10 @@
 import 'package:airplane_demo/core/core.dart';
 import 'package:dio/dio.dart';
 
-extension DioErrorExtension on DioError {
+extension DioExceptionExtension on DioException {
   ServerException toServerException() {
     switch (type) {
-      case DioErrorType.badResponse:
+      case DioExceptionType.badResponse:
         switch (response?.statusCode) {
           case 401:
             return UnAuthenticationServerException(
@@ -34,18 +34,18 @@ extension DioErrorExtension on DioError {
             );
         }
 
-      case DioErrorType.connectionTimeout:
-      case DioErrorType.sendTimeout:
-      case DioErrorType.receiveTimeout:
+      case DioExceptionType.connectionTimeout:
+      case DioExceptionType.sendTimeout:
+      case DioExceptionType.receiveTimeout:
         return TimeOutServerException(
           message: 'Connection timeout',
           code: response?.statusCode,
         );
 
-      case DioErrorType.cancel:
-      case DioErrorType.badCertificate:
-      case DioErrorType.connectionError:
-      case DioErrorType.unknown:
+      case DioExceptionType.cancel:
+      case DioExceptionType.badCertificate:
+      case DioExceptionType.connectionError:
+      case DioExceptionType.unknown:
         return GeneralServerException(
           message: 'A Server Error Occurred',
           code: response?.statusCode,

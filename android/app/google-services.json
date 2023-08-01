@@ -31,10 +31,10 @@
               "client_type": 3
             },
             {
-              "client_id": "806867048106-ji6kumof8vgmif4tde6op62lgllaoong.apps.googleusercontent.com",
+              "client_id": "806867048106-1kk33r8741d73rt8k9lte8jvrbk0j5c3.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.donisaputra.airplane"
+                "bundle_id": "com.donisaputra.airplane.stag"
               }
             }
           ]
@@ -67,10 +67,10 @@
               "client_type": 3
             },
             {
-              "client_id": "806867048106-ji6kumof8vgmif4tde6op62lgllaoong.apps.googleusercontent.com",
+              "client_id": "806867048106-1kk33r8741d73rt8k9lte8jvrbk0j5c3.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.donisaputra.airplane"
+                "bundle_id": "com.donisaputra.airplane.stag"
               }
             }
           ]
@@ -103,10 +103,10 @@
               "client_type": 3
             },
             {
-              "client_id": "806867048106-ji6kumof8vgmif4tde6op62lgllaoong.apps.googleusercontent.com",
+              "client_id": "806867048106-1kk33r8741d73rt8k9lte8jvrbk0j5c3.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.donisaputra.airplane"
+                "bundle_id": "com.donisaputra.airplane.stag"
               }
             }
           ]
