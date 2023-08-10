@@ -1,21 +1,61 @@
-# airplane_demo
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://avatars.githubusercontent.com/u/14101776" width="100" alt="Laravel Logo"></a></p>
 
-A new Flutter project.
+## About App Airplane
 
-## Getting Started
+Airplane App is a mobile application used to book airplane tickets. The app is built using the Flutter framework, which allows developers to create apps with attractive and responsive interfaces for multiple platforms.
 
-This project is a starting point for a Flutter application.
+## Get Started
 
-A few resources to get you started if this is your first Flutter project:
+_Here's the installation and use of this repo :_
 
+1. Clone the repo
+   ```sh
+   git clone git@github.com:donisaputradev/airplane_demo.git
+   #or
+   git clone https://github.com/donisaputradev/airplane_demo.git
+   ```
+3. get package to get all the packages needed
+   ```sh
+   flutter pub get
+   #or
+   flutter packages get
+   ```
+4. How to start debug :
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+   for vs code & android studio can use run/debug idea
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+   #### Launch Development
+   ```dart
+   flutter run -t lib/main_dev.dart --flavor dev
+   ```
+   #### Launch Staging/Sandbox
+   ```dart
+   flutter run -t lib/main_stag.dart --flavor stag
+   ```
+   #### Launch Production
+   ```dart
+   flutter run -t lib/main_prod.dart --flavor prod
+   ```
+5. To build APK desired flavor use the following commands :
 
-// flutterfire config --project=airplanedemo-157e8 --out=lib/firebase_options_dev.dart --ios-bundle-id=com.donisaputra.airplane.dev --android-app-id=com.donisaputra.airplane.dev
-// flutterfire config --project=airplanedemo-157e8 --out=lib/firebase_options_stag.dart --ios-bundle-id=com.donisaputra.airplane.stag --android-app-id=com.donisaputra.airplane.stag
-// flutterfire config --project=airplanedemo-157e8 --out=lib/firebase_options.dart --ios-bundle-id=com.donisaputra.airplane --android-app-id=com.donisaputra.airplane
+   #### Build Development
+   ```dart
+   flutter build apk -t lib/main_dev.dart --flavor dev
+   ```
+   #### Build Staging/Sandbox
+   ```dart
+   flutter build apk -t lib/main_stag.dart --flavor stag
+   ```
+   #### Build Production
+   ```dart
+   flutter build apk -t lib/main_prod.dart --flavor prod
+   ```
+   And for builds for release, see the documentation according to the [Android] and [iOS] platforms.
+
+## Support Me
+
+<p><a href="https://www.buymeacoffee.com/donisaputradev"> <img align="left" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" alt="donisaputradev" /></a></p><br><br>
+
+## License
+
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
